@@ -12,5 +12,9 @@ export class ProductService {
       throw new Error(`Failed to create product: ${error.message}`);
     }
   }
+
+  async getProducts() {
+    return this.productRepository.find({});
+  }
   
 }

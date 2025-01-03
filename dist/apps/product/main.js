@@ -79,6 +79,9 @@ let ProductController = class ProductController {
             throw new common_1.BadRequestException(error.message);
         }
     }
+    async getProducts() {
+        return await this.productService.getProducts();
+    }
 };
 exports.ProductController = ProductController;
 __decorate([
@@ -88,6 +91,12 @@ __decorate([
     __metadata("design:paramtypes", [typeof (_b = typeof create_product_request_1.CreateProductRequest !== "undefined" && create_product_request_1.CreateProductRequest) === "function" ? _b : Object]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "createProduct", null);
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "getProducts", null);
 exports.ProductController = ProductController = __decorate([
     (0, common_1.Controller)('product'),
     __metadata("design:paramtypes", [typeof (_a = typeof product_service_1.ProductService !== "undefined" && product_service_1.ProductService) === "function" ? _a : Object])
@@ -222,6 +231,9 @@ let ProductService = class ProductService {
         catch (error) {
             throw new Error(`Failed to create product: ${error.message}`);
         }
+    }
+    async getProducts() {
+        return this.productRepository.find({});
     }
 };
 exports.ProductService = ProductService;

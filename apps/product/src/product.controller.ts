@@ -15,4 +15,9 @@ export class ProductController {
     }
   }
 
+  @Get()
+  async getProducts() {
+    return await this.productService.getProducts();
+  }
+
 }
